@@ -11,17 +11,17 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/dateEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/editText"
+            android:layout_alignStart="@+id/nameEdit"
             android:layout_alignTop="@+id/textView2"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Fecha" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/commentEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textView4"
@@ -58,7 +58,7 @@
             android:text="Comentario" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/nameEdit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignTop="@+id/editText"
+            android:layout_alignTop="@+id/nameEdit"
             android:layout_marginStart="32dp"
             android:text="Nombre" />
 
@@ -81,14 +81,14 @@
             android:id="@+id/category_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/editText2"
+            android:layout_alignStart="@+id/dateEdit"
             android:layout_below="@+id/textView3" />
 
         <Button
             android:id="@+id/send_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/editText2"
+            android:layout_alignEnd="@+id/dateEdit"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="94dp"
             android:text="Send" />

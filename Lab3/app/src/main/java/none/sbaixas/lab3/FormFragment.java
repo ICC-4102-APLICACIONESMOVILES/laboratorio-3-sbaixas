@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,10 @@ import java.util.List;
  */
 public class FormFragment extends Fragment {
 
+    TextView nameEdit;
+    TextView dateEdit;
+    TextView commentEdit;
+    Spinner category_spinner;
 
     public FormFragment() {
         // Required empty public constructor
@@ -36,7 +41,7 @@ public class FormFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        Spinner category_spinner = getView().findViewById(R.id.category_spinner);
+        category_spinner = getView().findViewById(R.id.category_spinner);
         List<String> spinnerArray =  new ArrayList<String>();
         spinnerArray.add("Encuesta");
         spinnerArray.add("Inspeccion");
@@ -45,6 +50,24 @@ public class FormFragment extends Fragment {
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, spinnerArray);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         category_spinner.setAdapter(spinnerAdapter);
+
+        nameEdit = getView().findViewById(R.id.nameEdit);
+        dateEdit = getView().findViewById(R.id.dateEdit);
+        commentEdit = getView().findViewById(R.id.commentEdit);
+    }
+
+    public void onDoneClick(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Forms form =new Forms();
+                form.setUserName(nameEdit.getText().toString());
+                form.setDate(dateEdit.getText().toString());
+                form.setCategory(category_spinner.getSelectedItem().toString());
+                form.setComment(commentEdit.getText().toString());
+                MainApplication.formDatabase.daoAccess().insertOnlySingleForm(form);
+            }
+        }) .start();
     }
 
 }

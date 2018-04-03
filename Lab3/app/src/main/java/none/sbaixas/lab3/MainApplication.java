@@ -10,7 +10,7 @@ import android.arch.persistence.room.Room;
 
 public class MainApplication extends Application {
     private static final String DATABASE_NAME = "forms_db";
-    private FormDatabase formDatabase;
+    public static FormDatabase formDatabase;
     @Override
     public void onCreate(){
         super.onCreate();
